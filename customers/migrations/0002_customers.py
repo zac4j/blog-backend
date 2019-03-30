@@ -3,11 +3,17 @@
 from django.db import migrations
 
 
-class Migration(migrations.Migration):
+def create_data(apps, schema_editor):
+    Customer = apps.get_model('customers', 'Customer')
+    Customer(first_name="Zac", last_name="Zhu", email="zac_ju@163.com", phone="00000000",
+             address="Shanghai", description="Mobile Developer").save()
 
+
+class Migration(migrations.Migration):
     dependencies = [
         ('customers', '0001_initial'),
     ]
 
     operations = [
+        migrations.RunPython(create_data)
     ]
