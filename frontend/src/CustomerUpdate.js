@@ -10,9 +10,9 @@ class CustomerUpdate extends Component {
     }
 
     componentDidMount() {
-        const {match: {params} = this.props};
+        const { match: { params } } = this.props;
         if (params && params.pk) {
-            customerService.getCustomer(params.pk).then((customer)=> {
+            customerService.getCustomer(params.pk).then((customer) => {
                 this.refs.firstName.value = customer.first_name
                 this.refs.lastName.value = customer.last_name
                 this.refs.email.value = customer.email
@@ -50,7 +50,7 @@ class CustomerUpdate extends Component {
     }
 
     handleUpdate(pk) {
-        customersService.updateCustomer({
+        customerService.updateCustomer({
             "pk": pk,
             "first_name": this.refs.firstName.value,
             "last_name": this.refs.lastName.value,

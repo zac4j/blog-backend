@@ -58,7 +58,7 @@ class CustomerList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.customers.map(customer => {
+                        {this.state.customers.map(customer =>
                             <tr key={customer.pk}>
                                 <td>{customer.pk} </td>
                                 <td>{customer.first_name}</td>
@@ -72,7 +72,7 @@ class CustomerList extends Component {
                                     <a href={"/customer/" + customer.pk}>Update</a>
                                 </td>
                             </tr>
-                        })}
+                        )}
                     </tbody>
                 </table>
                 <button className="btn btn-primary" onClick={this.nextPage}>Next</button>
